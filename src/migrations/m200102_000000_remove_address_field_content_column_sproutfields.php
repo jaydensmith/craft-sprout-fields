@@ -7,14 +7,14 @@
 
 namespace barrelstrength\sproutfields\migrations;
 
-use barrelstrength\sproutbasefields\migrations\m190313_000000_add_administrativeareacode_column;
+use barrelstrength\sproutbasefields\migrations\m200102_000000_remove_address_field_content_column;
 use craft\db\Migration;
 use yii\base\NotSupportedException;
 
 /**
- * m190313_000000_rename_administrative_area_code_column_sproutfields migration.
+ * m200102_000000_remove_address_field_content_column_sproutfields migration.
  */
-class m190313_000000_rename_administrative_area_code_column_sproutfields extends Migration
+class m200102_000000_remove_address_field_content_column_sproutfields extends Migration
 {
     /**
      * @return bool
@@ -22,7 +22,7 @@ class m190313_000000_rename_administrative_area_code_column_sproutfields extends
      */
     public function safeUp(): bool
     {
-        $migration = new m190313_000000_add_administrativeareacode_column();
+        $migration = new m200102_000000_remove_address_field_content_column();
 
         ob_start();
         $migration->safeUp();
@@ -36,7 +36,7 @@ class m190313_000000_rename_administrative_area_code_column_sproutfields extends
      */
     public function safeDown(): bool
     {
-        echo "m190313_000000_rename_administrative_area_code_column_sproutfields cannot be reverted.\n";
+        echo "m200102_000000_remove_address_field_content_column_sproutfields cannot be reverted.\n";
 
         return false;
     }

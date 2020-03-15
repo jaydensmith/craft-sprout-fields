@@ -1,25 +1,26 @@
-<?php /**
+<?php
+/**
  * @link https://sprout.barrelstrengthdesign.com
  * @copyright Copyright (c) Barrel Strength Design LLC
  * @license https://craftcms.github.io/license
- */ /** @noinspection ClassConstantCanBeUsedInspection */
+ */
 
 namespace barrelstrength\sproutfields\migrations;
 
-use barrelstrength\sproutbasefields\migrations\m190521_000000_add_predefined_data_type_setting;
+use barrelstrength\sproutbasefields\migrations\m191218_000000_remove_addressHelper_from_settings;
 use craft\db\Migration;
 
 /**
- * m190521_000000_add_predefined_data_type_setting_sproutfields migration.
+ * m191218_000000_remove_addressHelper_from_settings_sproutfields migration.
  */
-class m190521_000000_add_predefined_data_type_setting_sproutfields extends Migration
+class m191218_000000_remove_addressHelper_from_settings_sproutfields extends Migration
 {
     /**
      * @inheritdoc
      */
     public function safeUp(): bool
     {
-        $migration = new m190521_000000_add_predefined_data_type_setting();
+        $migration = new m191218_000000_remove_addressHelper_from_settings();
 
         ob_start();
         $migration->safeUp();
@@ -33,7 +34,7 @@ class m190521_000000_add_predefined_data_type_setting_sproutfields extends Migra
      */
     public function safeDown(): bool
     {
-        echo "m190521_000000_add_predefined_data_type_setting_sproutfields cannot be reverted.\n";
+        echo "m191218_000000_remove_addressHelper_from_settings_sproutfields cannot be reverted.\n";
 
         return false;
     }

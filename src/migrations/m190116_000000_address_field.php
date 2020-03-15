@@ -1,4 +1,9 @@
 <?php
+/**
+ * @link https://sprout.barrelstrengthdesign.com
+ * @copyright Copyright (c) Barrel Strength Design LLC
+ * @license https://craftcms.github.io/license
+ */
 
 namespace barrelstrength\sproutfields\migrations;
 
@@ -42,6 +47,7 @@ class m190116_000000_address_field extends Migration
     public function safeDown(): bool
     {
         echo "m190116_000000_address_field cannot be reverted.\n";
+
         return false;
     }
 }

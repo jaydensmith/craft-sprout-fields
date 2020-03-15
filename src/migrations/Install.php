@@ -1,9 +1,14 @@
 <?php
+/**
+ * @link https://sprout.barrelstrengthdesign.com
+ * @copyright Copyright (c) Barrel Strength Design LLC
+ * @license https://craftcms.github.io/license
+ */
 
 namespace barrelstrength\sproutfields\migrations;
 
-use craft\db\Migration;
 use barrelstrength\sproutbasefields\migrations\Install as SproutBaseFieldsInstall;
+use craft\db\Migration;
 
 class Install extends Migration
 {

@@ -1,10 +1,18 @@
 <?php
+/**
+ * @link https://sprout.barrelstrengthdesign.com
+ * @copyright Copyright (c) Barrel Strength Design LLC
+ * @license https://craftcms.github.io/license
+ */
 
 namespace barrelstrength\sproutfields\fields;
 
 use Craft;
 use craft\base\ElementInterface;
 use craft\base\Field;
+use Twig\Error\LoaderError;
+use Twig\Error\RuntimeError;
+use Twig\Error\SyntaxError;
 
 class Gender extends Field
 {
@@ -40,9 +48,11 @@ class Gender extends Field
      * @param ElementInterface|null $element
      *
      * @return string
-     * @throws \Twig\Error\LoaderError
-     * @throws \Twig\Error\RuntimeError
-     * @throws \Twig\Error\SyntaxError
+     * @throws LoaderError
+     * @throws RuntimeError
+     * @throws SyntaxError
+     * @throws \yii\base\Exception
+     * @throws \yii\base\Exception
      */
     public function getInputHtml($value, ElementInterface $element = null): string
     {
@@ -51,14 +61,13 @@ class Gender extends Field
         $namespaceInputId = Craft::$app->getView()->namespaceInputId($inputId);
         $genderOptions = $this->getGenderOptions($value);
 
-        return Craft::$app->getView()->renderTemplate(
-            'sprout-base-fields/_components/fields/formfields/gender/input',
+        return Craft::$app->getView()->renderTemplate('sprout-base-fields/_components/fields/formfields/gender/input',
             [
                 'id' => $namespaceInputId,
-                'name' => $name,
                 'field' => $this,
-                'value' => $value,
-                'genderOptions' => $genderOptions
+                'genderOptions' => $genderOptions,
+                'name' => $name,
+                'value' => $value
             ]
         );
     }

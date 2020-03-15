@@ -1,9 +1,14 @@
 <?php
+/**
+ * @link https://sprout.barrelstrengthdesign.com
+ * @copyright Copyright (c) Barrel Strength Design LLC
+ * @license https://craftcms.github.io/license
+ */
 
 namespace barrelstrength\sproutfields\migrations;
 
-use craft\db\Migration;
 use Craft;
+use craft\db\Migration;
 use craft\helpers\FileHelper;
 use craft\services\Plugins;
 use Throwable;
@@ -49,6 +54,7 @@ class m180228_161529_settings_to_null extends Migration
     public function safeDown(): bool
     {
         echo "m180228_161529_settings_to_null cannot be reverted.\n";
+
         return false;
     }
 }

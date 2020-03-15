@@ -1,9 +1,99 @@
 # Changelog
 
-## 3.4.5 - 2019-11-14
+## 3.6.1 - 2020-02-12
+
+## Added
+- Added the Template Field for selecting Twig Templates with Auto-suggest and Dropdown field style options
+
+### Changed
+- Updated `barrelstrength/sprout-base-fields` requirement to v1.3.1
+- Updated `barrelstrength/sprout-base` requirement to v5.1.1
+
+## 3.6.0 - 2020-02-05
+
+### Changed
+- Updated models to use `defineRules()` method
+- Removed `EditableTable.js` file
+- Updated `barrelstrength/sprout-base-fields` requirement to v1.3.0
+- Updated `barrelstrength/sprout-base` requirement to v5.1.0
+
+## 3.5.4 - 2020-01-15
+
+### Updated
+- Updated `barrelstrength/sprout-base-fields` to v1.2.3
+
+### Fixed 
+- Fixed array offset error in PHP 7.4 ([#405][405-sproutbasefields]) 
+
+[405-sproutbasefields]: https://github.com/barrelstrength/craft-sprout-forms/issues/405
+
+## 3.5.3 - 2020-01-15
+
+### Updated
+- Updated `barrelstrength/sprout-base-fields` to v1.2.2
+
+### Fixed 
+- Fixed error in address table migration ([#182][182-sproutseo])
+
+[182-sproutseo]: https://github.com/barrelstrength/craft-sprout-seo/issues/182
+
+## 3.5.2 - 2020-01-15
+
+### Fixed
+- Fixed bug where optional Phone field would not validate with blank value
+
+## 3.5.1 - 2020-01-09
+
+### Updated
+- Updated `barrelstrength/sprout-base-fields` to v1.2.1
+
+### Fixed
+- Fixed scenario where address table updates may not get triggered in migrations
+ 
+## 3.5.0 - 2020-01-09
 
 ### Added
-- Added native GraphQL support for Address, Notes and Predefined Date fields.
+- Added support for displaying Address on Revisions using `Field::getStaticHtml()`
+- Added `barrelstrength\sproutbasefields\services\Name`
+- Added `barrelstrength\sproutbasefields\services\Phone::getCountries()` 
+- Added `barrelstrength\sproutbasefields\models\Address::getCountryCode()`
+- Added `barrelstrength\sproutbasefields\events\OnSaveAddressEvent::$address`
+
+### Changed
+- Updated how Address Fields are saved and retrieved to better handle Drafts, Revisions, and other integrations
+- Updated and standardized shared logic, validation, and response for fields Email, Name, Phone, Regular Expression, and Url 
+- Improved multi-site support for Addresses
+- Updated dynamic email validation to exclude check for unique email setting
+- Updated Phone field to save `null` instead of empty JSON blob
+- Updated Name field to save `null` instead of empty JSON blob
+- Addresses are now stored only in the `sproutfields_adddresses` table. Updated `barrelstrength\sproutfields\fields\Address::hasContentColumn` to return false.
+- Updated `barrelstrength\sproutbasefields\services\Address::deleteAddressById()` to require address ID
+- Improved fallbacks for Address Field's default country and language
+- Moved methods from `barrelstrength\sproutbasefields\helpers\AddressHelper` to `barrelstrength\sproutbasefields\services\Address`
+- Moved methods from `barrelstrength\sproutbasefields\helpers\AddressHelper` to `barrelstrength\sproutbasefields\services\AddressFormatter`
+- Updated `barrelstrength\sproutbasefields\helpers\AddressHelper` to `barrelstrength\sproutbasefields\services\AddressFormatter`
+- Deprecated property `barrelstrength\sproutbasefields\events\OnSaveAddressEvent::$model`
+- Renamed `barrelstrength\sproutbasefields\services\Address::getAddress()` => `getAddressFromElement()`
+- Renamed data attribute `addressid` => `address-id`
+- Renamed data attribute `defaultcountrycode` => `default-country-code`
+- Renamed data attribute `showcountrydropdown` => `show-country-dropdown`
+- Updated `barrelstrength/sprout-base-fields` to v1.2.0
+- Updated `commerceguys/addressing` to v1.0.6
+- Updated `giggsey/libphonenumber-for-php` to v8.11.1
+
+### Fixed
+- Fixed Phone validation bug on initial Drafts
+- Fixed Email Field unique email validation with Drafts
+- Fixed display issue with Gibraltar addresses
+- Fixed bug where Address input fields did not display in edit modal after Address was cleared
+
+### Removed
+- Removed `barrelstrength\sproutfields\fields\Phone::getCountries()`
+- Removed `barrelstrength\sproutfields\fields\Address::serializeValue()`
+- Removed `barrelstrength\sproutbasefields\helpers\AddressHelper`
+- Removed `barrelstrength\sproutbasefields\controllers\actionDeleteAddress()`
+- Removed `barrelstrength\sproutbasefields\models\Name;:$fullName`
+- Removed `commerceguys/intl`
 
 ## 3.4.4 - 2019-08-14
 

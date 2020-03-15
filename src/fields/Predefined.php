@@ -1,4 +1,9 @@
 <?php
+/**
+ * @link https://sprout.barrelstrengthdesign.com
+ * @copyright Copyright (c) Barrel Strength Design LLC
+ * @license https://craftcms.github.io/license
+ */
 
 namespace barrelstrength\sproutfields\fields;
 
@@ -58,6 +63,8 @@ class Predefined extends BasePredefinedField
      * @throws LoaderError
      * @throws RuntimeError
      * @throws SyntaxError
+     * @throws \yii\base\Exception
+     * @throws \yii\base\Exception
      */
     public function getSettingsHtml()
     {
@@ -112,10 +119,10 @@ class Predefined extends BasePredefinedField
 
         return Craft::$app->getView()->renderTemplate('sprout-base-fields/_components/fields/formfields/predefined/input',
             [
+                'field' => $this,
                 'id' => $this->handle,
                 'name' => $this->handle,
                 'value' => $value,
-                'field' => $this
             ]);
     }
 }

@@ -1,10 +1,15 @@
 <?php
+/**
+ * @link https://sprout.barrelstrengthdesign.com
+ * @copyright Copyright (c) Barrel Strength Design LLC
+ * @license https://craftcms.github.io/license
+ */
 
 namespace barrelstrength\sproutfields\migrations;
 
 use craft\db\Migration;
-use craft\fields\Table;
 use craft\db\Query;
+use craft\fields\Table;
 use craft\helpers\Json;
 
 /**
@@ -62,6 +67,7 @@ class m180221_161524_email_select_fields extends Migration
     public function safeDown(): bool
     {
         echo "m180221_161524_email_select_fields cannot be reverted.\n";
+
         return false;
     }
 }

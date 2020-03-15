@@ -1,12 +1,17 @@
 <?php
+/**
+ * @link https://sprout.barrelstrengthdesign.com
+ * @copyright Copyright (c) Barrel Strength Design LLC
+ * @license https://craftcms.github.io/license
+ */
 
 namespace barrelstrength\sproutfields\fields;
 
+use barrelstrength\sproutbasefields\web\assets\quill\QuillAsset;
 use Craft;
 use craft\base\ElementInterface;
 use craft\base\Field;
-use barrelstrength\sproutbasefields\web\assets\quill\QuillAsset;
-
+use craft\errors\DeprecationException;
 use craft\helpers\FileHelper;
 use GraphQL\Type\Definition\Type;
 use Twig\Error\LoaderError;
@@ -70,12 +75,11 @@ class Notes extends Field
         $view = Craft::$app->getView();
         $view->registerAssetBundle(QuillAsset::class);
 
-        return Craft::$app->getView()->renderTemplate(
-            'sprout-base-fields/_components/fields/formfields/notes/settings',
+        return Craft::$app->getView()->renderTemplate('sprout-base-fields/_components/fields/formfields/notes/settings',
             [
-                'styles' => $this->_getCustomStyleOptions(),
+                'field' => $this,
                 'options' => $this->getOptions(),
-                'field' => $this
+                'styles' => $this->_getCustomStyleOptions()
             ]
         );
     }
@@ -91,7 +95,7 @@ class Notes extends Field
      * @throws LoaderError
      * @throws RuntimeError
      * @throws SyntaxError
-     * @throws \craft\errors\DeprecationException
+     * @throws DeprecationException
      */
     public function getInputHtml($value, ElementInterface $element = null): string
     {
@@ -122,12 +126,11 @@ class Notes extends Field
             $this->notes = '';
         }
 
-        return Craft::$app->getView()->renderTemplate(
-            'sprout-base-fields/_components/fields/formfields/notes/input',
+        return Craft::$app->getView()->renderTemplate('sprout-base-fields/_components/fields/formfields/notes/input',
             [
+                'field' => $this,
                 'id' => $namespaceInputId,
                 'name' => $name,
-                'field' => $this,
                 'selectedStyleCss' => $selectedStyleCss
             ]
         );

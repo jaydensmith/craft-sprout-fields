@@ -1,4 +1,8 @@
-<?php /** @noinspection ClassConstantCanBeUsedInspection */
+<?php /**
+ * @link https://sprout.barrelstrengthdesign.com
+ * @copyright Copyright (c) Barrel Strength Design LLC
+ * @license https://craftcms.github.io/license
+ */ /** @noinspection ClassConstantCanBeUsedInspection */
 
 namespace barrelstrength\sproutfields\migrations;
 
@@ -43,6 +47,16 @@ class m180221_161521_update_type extends Migration
     }
 
     /**
+     * @inheritdoc
+     */
+    public function safeDown(): bool
+    {
+        echo "m180221_161521_update_type cannot be reverted.\n";
+
+        return false;
+    }
+
+    /**
      * Get the ids with context not from the sprout form fields
      *
      * @param $type
@@ -57,14 +71,5 @@ class m180221_161521_update_type extends Migration
             ->where(['type' => $type])
             ->andWhere(['NOT REGEXP', 'context', 'sproutForms:.*'])
             ->column();
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function safeDown(): bool
-    {
-        echo "m180221_161521_update_type cannot be reverted.\n";
-        return false;
     }
 }

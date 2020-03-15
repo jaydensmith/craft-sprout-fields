@@ -7,14 +7,14 @@
 
 namespace barrelstrength\sproutfields\migrations;
 
-use barrelstrength\sproutbasefields\migrations\m190313_000000_add_administrativeareacode_column;
+use barrelstrength\sproutbasefields\migrations\m200102_000000_update_empty_name_fields_to_null;
 use craft\db\Migration;
 use yii\base\NotSupportedException;
 
 /**
- * m190313_000000_rename_administrative_area_code_column_sproutfields migration.
+ * m200102_000000_update_empty_name_fields_to_null_sproutfields migration.
  */
-class m190313_000000_rename_administrative_area_code_column_sproutfields extends Migration
+class m200102_000000_update_empty_name_fields_to_null_sproutfields extends Migration
 {
     /**
      * @return bool
@@ -22,7 +22,7 @@ class m190313_000000_rename_administrative_area_code_column_sproutfields extends
      */
     public function safeUp(): bool
     {
-        $migration = new m190313_000000_add_administrativeareacode_column();
+        $migration = new m200102_000000_update_empty_name_fields_to_null();
 
         ob_start();
         $migration->safeUp();
@@ -36,7 +36,7 @@ class m190313_000000_rename_administrative_area_code_column_sproutfields extends
      */
     public function safeDown(): bool
     {
-        echo "m190313_000000_rename_administrative_area_code_column_sproutfields cannot be reverted.\n";
+        echo "m200102_000000_update_empty_name_fields_to_null_sproutfields cannot be reverted.\n";
 
         return false;
     }

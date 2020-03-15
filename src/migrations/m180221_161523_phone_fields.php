@@ -1,10 +1,15 @@
 <?php
+/**
+ * @link https://sprout.barrelstrengthdesign.com
+ * @copyright Copyright (c) Barrel Strength Design LLC
+ * @license https://craftcms.github.io/license
+ */
 
 namespace barrelstrength\sproutfields\migrations;
 
 use craft\db\Migration;
-use craft\fields\PlainText;
 use craft\db\Query;
+use craft\fields\PlainText;
 use craft\helpers\Json;
 
 /**
@@ -46,6 +51,7 @@ class m180221_161523_phone_fields extends Migration
     public function safeDown(): bool
     {
         echo "m180221_161523_phone_fields cannot be reverted.\n";
+
         return false;
     }
 }
